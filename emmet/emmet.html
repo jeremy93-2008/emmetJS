@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Emmet Prueba</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="emmet.js"></script>
+    <script type="text/javascript">
+        function Cargar()
+        {
+            console.time();
+            var emmet = new Emmet("table[width=300,height=300]>#row$*8>.col{Hola $$$@0}*8");
+            document.body.appendChild(emmet.generateNodes());
+            console.timeEnd();
+        }
+    </script>
+    <style>
+        table
+        {
+            border:solid 2px black;
+            background-color: grey;
+        }
+        tr:nth-child(odd)
+        {
+            background-color: #ff5500;
+        }
+        tr:nth-child(even)
+        {
+            background-color: #37f807;
+        }
+        td
+        {
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="Cargar()">Realizar Emmet</button>
+    <div class="contenedor"></div>
+</body>
+</html>
