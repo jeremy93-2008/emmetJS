@@ -264,6 +264,7 @@ function generarEstructura(sentencia)
             if(signos.indexOf(")") != -1 && typeof(nodoprimario) == "object")
             {
                 ultimoelemento = nodoprimario.parentNode;
+				nodoprimario = "";
                 insidemultipl = 0;
             }
         }
