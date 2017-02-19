@@ -93,7 +93,7 @@ function generarEstructura(sentencia)
     /**
      * Expresion Regular que devuelve en un array todos los operadores y componentes de la sentencia Emmet
      */
-    var tabladesignos = sentencia.match(/[#|\.|\w|\{|\(][\w|\[|\]|\{|\}|\=|\s|\$|\-|\_|\(|\)|\#|\.|\@|\,]*[>|^|\+|*|;]+/g);   
+    var tabladesignos = sentencia.match(/[#|\.|\w|\{|\(][\w|\[|\]|\{|\}|\=|\s|\$|\-|\_|\(|\)|\#|\.|\@|\,|&|ñ|%|:]*[>|^|\+|*|;]+/g);   
     /**
      * El proximo signo que deberá respectar jeraquicamente el proximo elemento
      */
@@ -113,7 +113,11 @@ function generarEstructura(sentencia)
     /**
      * Nodo original del parentesis
      */
-     var nodoprimario = "";
+    var nodoprimario = "";
+    /**
+     * Altura original
+     */
+    var altura = 1;
 
     for(var a = 0;a < tabladesignos.length;a++)
     {
@@ -263,7 +267,7 @@ function generarEstructura(sentencia)
             }
             if(signos.indexOf(")") != -1 && typeof(nodoprimario) == "object")
             {
-                ultimoelemento = nodoprimario.parentNode;
+                ultimoelemento = nodoprimario;
 				nodoprimario = "";
                 insidemultipl = 0;
             }
@@ -278,7 +282,7 @@ function crearElemento(signo,ultimo)
 {
     var nombreultimo = ultimo.nodeName;
     var elm = "";
-    var sent = signo.replace(">","").replace("^","").replace("*","").replace(";","").replace("+","").replace("$","1").replace("(","").replace(")","");
+    var sent = signo.replace(">","").replace(/\^/g,"").replace("*","").replace(";","").replace("+","").replace("$","1").replace("(","").replace(")","");
     if(isNaN(parseInt(sent)))
     {
         var claseinside = false;
@@ -506,9 +510,6 @@ function autonumerar(elm,numero,maximo,clonar)
             }
         }
         elm.textContent = texto.replace(arr,"");
-    }else
-    {
-        nombreu++;
     }
 
     texto = elm.textContent;
