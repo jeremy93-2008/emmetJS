@@ -3,7 +3,7 @@ Convert Emmet sentence in a HTML Collection
 ## Introduction
 This library is a fully raw Javascript, built to make easier the creation of nodes structure in javascript, code less and be more efficient.
 
-This library use the Emmet abreviation to make this possible, and transform those abbreviations in a complete List of HTML Nodes
+This library use the Emmet abbreviation to make this possible, and transform those abbreviations in a complete List of HTML Nodes
 
 ## Emmet Sentences
 To understand how Emmet work, go to official website [emmet.io](http://emmet.io/) and read the documentation.
